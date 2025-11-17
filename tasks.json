@@ -22,6 +22,11 @@
     {
       "id": "doing",
       "title": "En Progreso",
+      "tasks": []
+    },
+    {
+      "id": "done",
+      "title": "Hecho",
       "tasks": [
         {
           "id": "20251117075313265911",
@@ -31,11 +36,6 @@
           "created": "2025-11-17T07:53:13.265911"
         }
       ]
-    },
-    {
-      "id": "done",
-      "title": "Hecho",
-      "tasks": []
     }
   ]
 }
