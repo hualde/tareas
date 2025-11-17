@@ -1,0 +1,41 @@
+{
+  "workers": [
+    {
+      "id": "20251117075223867267",
+      "name": "Mikel Malon",
+      "email": "",
+      "created": "2025-11-17T07:52:23.868266"
+    },
+    {
+      "id": "20251117075251785753",
+      "name": "Javier Hualde",
+      "email": "",
+      "created": "2025-11-17T07:52:51.785753"
+    }
+  ],
+  "columns": [
+    {
+      "id": "todo",
+      "title": "Por Hacer",
+      "tasks": []
+    },
+    {
+      "id": "doing",
+      "title": "En Progreso",
+      "tasks": [
+        {
+          "id": "20251117075313265911",
+          "title": "test",
+          "description": "prueba los microfonso",
+          "assignedTo": "20251117075251785753",
+          "created": "2025-11-17T07:53:13.265911"
+        }
+      ]
+    },
+    {
+      "id": "done",
+      "title": "Hecho",
+      "tasks": []
+    }
+  ]
+}

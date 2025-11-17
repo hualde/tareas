@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tablero de Tareas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Mi Tablero de Tareas</h1>
+            <p class="subtitle">Organiza tus tareas de forma sencilla</p>
+            <div class="header-buttons">
+                <button class="btn-manage-workers" onclick="openWorkersModal()">👥 Gestionar Trabajadores</button>
+                <button class="btn-git-push" onclick="pushToGitHub()" id="gitPushBtn">
+                    <span id="gitPushText">☁️ Subir a GitHub</span>
+                    <span id="gitPushLoading" style="display: none;">⏳ Subiendo...</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="board" id="board">
+            <!-- Las columnas se generan dinámicamente -->
+        </div>
+    </div>
+
+    <!-- Modal para crear/editar tareas -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Nueva Tarea</h2>
+            <form id="taskForm">
+                <input type="hidden" id="taskId">
+                <input type="hidden" id="columnId">
+                
+                <div class="form-group">
+                    <label for="taskTitle">Título:</label>
+                    <input type="text" id="taskTitle" required placeholder="Escribe el título de la tarea">
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskDescription">Descripción:</label>
+                    <textarea id="taskDescription" rows="4" placeholder="Añade una descripción (opcional)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskAssignedTo">Asignar a:</label>
+                    <select id="taskAssignedTo">
+                        <option value="">Sin asignar</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para gestionar trabajadores -->
+    <div id="workersModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeWorkersModal()">&times;</span>
+            <h2>👥 Gestionar Trabajadores</h2>
+            <div class="workers-list" id="workersList">
+                <!-- Lista de trabajadores -->
+            </div>
+            <form id="workerForm" class="worker-form">
+                <div class="form-group">
+                    <label for="workerName">Nombre:</label>
+                    <input type="text" id="workerName" required placeholder="Nombre del trabajador">
+                </div>
+                <div class="form-group">
+                    <label for="workerEmail">Email (opcional):</label>
+                    <input type="email" id="workerEmail" placeholder="email@ejemplo.com">
+                </div>
+                <input type="hidden" id="workerId">
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetWorkerForm()">Nuevo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
